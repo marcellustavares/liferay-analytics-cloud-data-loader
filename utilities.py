@@ -40,7 +40,6 @@ def shift_page_doc_dates(page_doc, delta):
 
     return page_doc
 
-
 def create_action_obj(index, doc_type, doc):
     return {
         "_index": index,
@@ -48,3 +47,6 @@ def create_action_obj(index, doc_type, doc):
         "_id": doc['id'],
         "_source": doc
     }
+
+def create_action_sql():
+    return """INSERT INTO pages (bounce, browserName, city , contentLanguageId, country , ctaClicks, dataSourceId, deviceType, directAccess, eventDate, exits, experienceId, formSubmissions, id, indirectAccess, individualId, platformName, primaryKey, region, sessionId, timeOnPage, title, url, userId, variantId, views) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"""
